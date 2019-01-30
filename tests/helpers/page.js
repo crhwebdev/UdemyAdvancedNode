@@ -13,7 +13,8 @@ const userFactory = require('../factories/userFactory');
 class CustomPage {
   static async build() {
     const browser = await await puppeteer.launch({
-      headless: false
+      headless: false,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
     const page = await browser.newPage();
